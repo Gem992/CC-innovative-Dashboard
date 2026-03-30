@@ -1,0 +1,49 @@
+inn/
+├── edge/                          # Agent 1 – IoT & Edge Layer
+│   ├── sensor_simulator.py        # Simulates IoT sensor data every 3 s
+│   ├── edge_filter.py             # Anomaly filter (temp > 30°C)
+│   ├── edge_server.py             # Flask server – POST /edge/send
+│   ├── requirements.txt
+│   └── README.md
+│
+├── cloud/                         # Agent 2 – Cloud Backend & Database
+│   ├── main.py                    # FastAPI app (POST /data, GET /data/all, GET /predictions)
+│   ├── firebase_client.py         # Firestore client with in-memory fallback
+│   ├── requirements.txt
+│   └── README.md
+│
+├── ml/                            # Agent 3 – AI/ML Module
+│   ├── model.py                   # Linear Regression + Isolation Forest inference API
+│   ├── train.py                   # Standalone training script with metrics
+│   ├── anomaly.py                 # Anomaly scoring utilities
+│   ├── lr_model.pkl               # (generated after training)
+│   ├── iso_forest.pkl             # (generated after training)
+│   ├── requirements.txt
+│   └── README.md
+│
+├── dashboard/                     # Agent 4 – React Web Dashboard
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   ├── src/
+│   │   ├── main.jsx               # React entry point
+│   │   ├── App.jsx                # Main dashboard app
+│   │   ├── index.css              # Design system (dark theme, tokens, animations)
+│   │   └── components/
+│   │       ├── StatCard.jsx       # KPI tile component
+│   │       ├── SensorChart.jsx    # Live temperature/humidity chart (Recharts)
+│   │       ├── PredictionChart.jsx # Actual vs predicted temperature chart
+│   │       ├── AnomalyAlerts.jsx  # Real-time anomaly alert feed
+│   │       ├── LatencyPanel.jsx   # Edge vs Cloud latency panel
+│   │       └── DataTable.jsx      # Raw readings table
+│   └── README.md
+│
+├── quantum/                       # Agent 5 – Quantum Module
+│   ├── quantum_scheduler.py       # QAOA-style Qiskit circuit for task scheduling
+│   ├── classical_scheduler.py     # Classical LPT greedy scheduler
+│   ├── compare.py                 # Side-by-side comparison runner
+│   ├── requirements.txt
+│   └── README.md
+│
+├── README.md                      # Global setup & run instructions
+└── folder_structure.txt           # This file
